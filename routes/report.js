@@ -1,19 +1,13 @@
 import { Router } from 'express';
-import request from 'request';
-import csv from 'csvtojson';
+import config from 'config';
+
+import csvreader from '../csvreader';
 
 const router = Router({ strict: true });
 
-const confirmedURI =
-  'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv';
-const deathURI =
-  'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv';
-const recoveredURI =
-  'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv';
-
 router.get('/confirmed', async (req, res, next) => {
   try {
-    const data = await csv().fromStream(request.get(confirmedURI));
+    const data = await csvreader(config.get('confirmedURI'));
     if (!data || data.length < 1)
       return res
         .status(404)
@@ -27,7 +21,7 @@ router.get('/confirmed', async (req, res, next) => {
 
 router.get('/deaths', async (req, res, next) => {
   try {
-    const data = await csv().fromStream(request.get(deathURI));
+    const data = await csvreader(config.get('deathURI'));
     if (!data || data.length < 1)
       return res
         .status(404)
@@ -41,7 +35,7 @@ router.get('/deaths', async (req, res, next) => {
 
 router.get('/recovered', async (req, res, next) => {
   try {
-    const data = await csv().fromStream(request.get(recoveredURI));
+    const data = await csvreader(config.get('recoveredURI'));
     if (!data || data.length < 1)
       return res
         .status(404)

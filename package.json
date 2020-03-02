@@ -24,6 +24,7 @@
   "homepage": "https://github.com/rooneyrulz/coronavirus_tracker#readme",
   "dependencies": {
     "colors": "^1.4.0",
+    "config": "^3.3.0",
     "csvtojson": "^2.0.10",
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",
