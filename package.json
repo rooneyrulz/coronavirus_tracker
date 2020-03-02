@@ -1,11 +1,13 @@
 {
   "name": "coronavirus_tracker",
   "version": "1.0.0",
-  "description": "simple app that tracking corona virus reports",
+  "description": "simple app that keep tracking corona virus reports",
   "main": "server.js",
   "scripts": {
+    "client": "npm start --prefix client",
     "start": "node -r esm server.js",
     "server": "nodemon -r esm server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
