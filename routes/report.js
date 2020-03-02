@@ -1,50 +1,26 @@
 import { Router } from 'express';
-import config from 'config';
 
-import csvreader from '../csvreader';
+import {
+  getConfirmedData,
+  getDeathData,
+  getRecoveredData,
+} from '../controllers/report';
 
 const router = Router({ strict: true });
 
-router.get('/confirmed', async (req, res, next) => {
-  try {
-    const data = await csvreader(config.get('confirmedURI'));
-    if (!data || data.length < 1)
-      return res
-        .status(404)
-        .send('corona virus confirmed reports data not found!');
-    return res.status(200).json(data);
-  } catch (error) {
-    console.log(error.message);
-    return res.status(500).send('something went wrong!');
-  }
-});
+// desc             >     get all confirmed report data
+// route            >     /api/covid-19/confirmed
+// access control   >     public
+router.get('/confirmed', getConfirmedData);
 
-router.get('/deaths', async (req, res, next) => {
-  try {
-    const data = await csvreader(config.get('deathURI'));
-    if (!data || data.length < 1)
-      return res
-        .status(404)
-        .send('corona virus deaths reports data not found!');
-    return res.status(200).json(data);
-  } catch (error) {
-    console.log(error.message);
-    return res.status(500).send('something went wrong!');
-  }
-});
+// desc             >     get all death report data
+// route            >     /api/covid-19/deaths
+// access control   >     public
+router.get('/deaths', getDeathData);
 
-router.get('/recovered', async (req, res, next) => {
-  try {
-    const data = await csvreader(config.get('recoveredURI'));
-    if (!data || data.length < 1)
-      return res
-        .status(404)
-        .send('corona virus recovered reports data not found!');
-    return res.status(200).json(data);
-  } catch (error) {
-    console.log(error.message);
-    return res.status(500).send('something went wrong!');
-  }
-});
+// desc             >     get all recovered report data
+// route            >     /api/covid-19/recovered
+// access control   >     public
+router.get('/recovered', getRecoveredData);
 
 export default router;
