@@ -4,13 +4,15 @@ import logger from 'morgan';
 import { config } from 'dotenv';
 import 'colors';
 
+import reportRoute from './routes/report';
+
 const app = express();
 const server = createServer(app);
 
 config({ path: '.env' });
 app.use(logger('dev'));
 
-app.use((req, res, next) => console.log('Hello!'));
+app.use('/api/covid-19', reportRoute);
 
 server.listen(process.env.PORT || 8000, () =>
   console.log(
@@ -18,3 +20,5 @@ server.listen(process.env.PORT || 8000, () =>
       .yellow.bold
   )
 );
+
+export default app;
