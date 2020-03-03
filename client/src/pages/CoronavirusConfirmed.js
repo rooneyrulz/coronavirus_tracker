@@ -5,8 +5,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getConfirmedData } from '../actions/report';
 
-// IMPORT COMPONENTS
+// COMPONENTS
 import DataTable from '../components/DataTable';
+import Spinner from '../layouts/Spinner';
 
 const CoronavirusConfirmed = ({
   report: { confirmedData, loading },
@@ -21,10 +22,11 @@ const CoronavirusConfirmed = ({
       <header>
         <h1>Coronavirus Confirmed Report</h1>
       </header>
+      <br />
       <hr />
       <br />
       <br />
-      {loading ? <h2>Loading...</h2> : <DataTable data={confirmedData} />}
+      {loading ? <Spinner /> : <DataTable data={confirmedData} />}
     </Fragment>
   );
 };

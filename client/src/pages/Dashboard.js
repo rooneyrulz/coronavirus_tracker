@@ -11,6 +11,7 @@ import {
 
 // COMPONENTS
 import Banner from '../layouts/Banner';
+import Spinner from '../layouts/Spinner';
 
 const Dashboard = ({
   report: { loading, confirmedData, deathData, recoveredData },
@@ -55,7 +56,7 @@ const Dashboard = ({
   );
 
   return loading ? (
-    <h2>Loading...</h2>
+    <Spinner />
   ) : (
     <Banner
       totalConfirmedCount={totalConfirmedCount}

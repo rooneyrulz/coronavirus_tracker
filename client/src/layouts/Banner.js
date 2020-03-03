@@ -12,7 +12,7 @@ const Banner = ({
   history
 }) => {
   const btnStyles = {
-    marginRight: 10
+    margin: 10
   };
   return (
     <div className='Banner'>
@@ -52,6 +52,7 @@ const Banner = ({
           Death Report: <strong>{totalDeathCount}</strong>
         </Button>
         <Button
+          style={btnStyles}
           onClick={() => history.push('/recovered-cases')}
           size='large'
           color='default'

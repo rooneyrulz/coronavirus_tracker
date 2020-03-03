@@ -5,8 +5,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getDeathData } from '../actions/report';
 
-// IMPORT COMPONENTS
+// COMPONENTS
 import DataTable from '../components/DataTable';
+import Spinner from '../layouts/Spinner';
 
 const CoronavirusDeath = ({ report: { deathData, loading }, getDeathData }) => {
   useEffect(() => {
@@ -16,16 +17,13 @@ const CoronavirusDeath = ({ report: { deathData, loading }, getDeathData }) => {
   return (
     <Fragment>
       <header>
-        <h1>Coronavirus Death Report</h1>
+        <h1>Coronavirus Death Tolls Report</h1>
       </header>
+      <br />
       <hr />
       <br />
       <br />
-      {loading ? (
-        <h2>Loading...</h2>
-      ) : (
-        <DataTable data={deathData} isDeath={true} />
-      )}
+      {loading ? <Spinner /> : <DataTable data={deathData} isDeath={true} />}
     </Fragment>
   );
 };

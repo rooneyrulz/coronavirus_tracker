@@ -13,6 +13,7 @@ import Dashboard from './pages/Dashboard';
 import CoronavirusConfirmed from './pages/CoronavirusConfirmed';
 import CoronavirusDeath from './pages/CoronavirusDeath';
 import CoronavirusRecovered from './pages/CoronavirusRecovered';
+import AppFooter from './layouts/AppFooter';
 
 const App = () => {
   return (
@@ -40,6 +41,11 @@ const App = () => {
               />
             </Switch>
           </Container>
+          <br />
+          <br />
+          <footer>
+            <AppFooter />
+          </footer>
         </Fragment>
       </BrowserRouter>
     </Provider>
