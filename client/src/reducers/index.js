@@ -1,3 +1,8 @@
 import { combineReducers } from 'redux';
 
-export default combineReducers({});
+// IMPORT REDUCERS
+import report from './report';
+
+export default combineReducers({
+  report
+});
