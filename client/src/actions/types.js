@@ -1,0 +1,4 @@
+export const LOADING = 'LOADING';
+export const GET_CONFIRMED_DATA = 'GET_CONFIRMED_DATA';
+export const GET_DEATH_DATA = 'GET_DEATH_DATA';
+export const GET_RECOVERED_DATA = 'GET_RECOVERED_DATA';
