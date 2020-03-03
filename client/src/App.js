@@ -22,6 +22,8 @@ const App = () => {
           <header>
             <AppHeader />
           </header>
+          <br />
+          <br />
           <Container maxWidth='md'>
             <Switch>
               <Route exact path='/' component={Dashboard} />

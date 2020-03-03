@@ -6,7 +6,7 @@ import TableRow from '@material-ui/core/TableRow';
 
 const DataTableRow = ({ row }) => {
   return (
-    <TableRow>
+    <TableRow hover>
       <TableCell component='th' scope='row'>
         {row.state}
       </TableCell>

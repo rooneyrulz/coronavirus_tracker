@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 // REDUX
@@ -17,12 +17,15 @@ const CoronavirusConfirmed = ({
   }, [getConfirmedData]);
 
   return (
-    <div>
-      <h1>Coronavirus Confirmed Cases</h1>
+    <Fragment>
+      <header>
+        <h1>Coronavirus Confirmed Report</h1>
+      </header>
+      <hr />
       <br />
       <br />
       {loading ? <h2>Loading...</h2> : <DataTable data={confirmedData} />}
-    </div>
+    </Fragment>
   );
 };
 

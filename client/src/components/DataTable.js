@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   }
 });
 
-const DataTable = ({ data }) => {
+const DataTable = ({ data, isDeath = false }) => {
   const classes = useStyles();
 
   const createData = (state, country, cases, changes) => {
@@ -47,7 +47,9 @@ const DataTable = ({ data }) => {
           <TableRow>
             <TableCell>State</TableCell>
             <TableCell align='center'>Country</TableCell>
-            <TableCell align='center'>Total Cases Reported</TableCell>
+            <TableCell align='center'>
+              {isDeath ? 'Tolls' : 'Total Cases Reported'}
+            </TableCell>
             <TableCell align='center'>Changes Since Last Day</TableCell>
           </TableRow>
         </TableHead>

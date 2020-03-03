@@ -1,11 +1,42 @@
-import React from 'react';
+import React, { useEffect, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
-const CoronavirusDeath = () => {
+// REDUX
+import { connect } from 'react-redux';
+import { getDeathData } from '../actions/report';
+
+// IMPORT COMPONENTS
+import DataTable from '../components/DataTable';
+
+const CoronavirusDeath = ({ report: { deathData, loading }, getDeathData }) => {
+  useEffect(() => {
+    getDeathData();
+  }, [getDeathData]);
+
   return (
-    <div>
-      <h1>Coronavirus Death Cases</h1>
-    </div>
+    <Fragment>
+      <header>
+        <h1>Coronavirus Death Report</h1>
+      </header>
+      <hr />
+      <br />
+      <br />
+      {loading ? (
+        <h2>Loading...</h2>
+      ) : (
+        <DataTable data={deathData} isDeath={true} />
+      )}
+    </Fragment>
   );
 };
 
-export default CoronavirusDeath;
+CoronavirusDeath.propTypes = {
+  report: PropTypes.object.isRequired,
+  getDeathData: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  report: state.report
+});
+
+export default connect(mapStateToProps, { getDeathData })(CoronavirusDeath);
