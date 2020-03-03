@@ -9,10 +9,10 @@ import store from './store';
 
 // COMPONENTS
 import AppHeader from './layouts/AppHeader';
-import Dashboard from './components/Dashboard';
-import CoronavirusConfirmed from './components/CoronavirusConfirmed';
-import CoronavirusDeath from './components/CoronavirusDeath';
-import CoronavirusRecovered from './components/CoronavirusRecovered';
+import Dashboard from './pages/Dashboard';
+import CoronavirusConfirmed from './pages/CoronavirusConfirmed';
+import CoronavirusDeath from './pages/CoronavirusDeath';
+import CoronavirusRecovered from './pages/CoronavirusRecovered';
 
 const App = () => {
   return (
@@ -22,7 +22,7 @@ const App = () => {
           <header>
             <AppHeader />
           </header>
-          <Container maxWidth='sm'>
+          <Container maxWidth='md'>
             <Switch>
               <Route exact path='/' component={Dashboard} />
               <Route

@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getConfirmedData } from '../actions/report';
 
+// IMPORT COMPONENTS
+import DataTable from '../components/DataTable';
+
 const CoronavirusConfirmed = ({
   report: { confirmedData, loading },
   getConfirmedData
@@ -13,18 +16,12 @@ const CoronavirusConfirmed = ({
     getConfirmedData();
   }, [getConfirmedData]);
 
-  const content = loading ? (
-    <h2>Loading...</h2>
-  ) : (
-    confirmedData.map(data => <p>{data['Province/State']}</p>)
-  );
-
   return (
     <div>
       <h1>Coronavirus Confirmed Cases</h1>
       <br />
       <br />
-      {content}
+      {loading ? <h2>Loading...</h2> : <DataTable data={confirmedData} />}
     </div>
   );
 };
