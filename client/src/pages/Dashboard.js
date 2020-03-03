@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 // REDUX
@@ -8,6 +8,9 @@ import {
   getDeathData,
   getRecoveredData
 } from '../actions/report';
+
+// COMPONENTS
+import Banner from '../layouts/Banner';
 
 const Dashboard = ({
   report: { loading, confirmedData, deathData, recoveredData },
@@ -54,23 +57,11 @@ const Dashboard = ({
   return loading ? (
     <h2>Loading...</h2>
   ) : (
-    <div>
-      <h1>Coronavirus Tracker Application</h1>
-      <br />
-      <p>
-        <strong>Total Confirmed Report</strong>:{' '}
-        <span>{totalConfirmedCount}</span>
-      </p>
-      <br />
-      <p>
-        <strong>Total Death Tolls</strong>: <span>{totalDeathCount}</span>
-      </p>
-      <br />
-      <p>
-        <strong>Total Recovered Report</strong>:{' '}
-        <span>{totalRecoveredCount}</span>
-      </p>
-    </div>
+    <Banner
+      totalConfirmedCount={totalConfirmedCount}
+      totalDeathCount={totalDeathCount}
+      totalRecoveredCount={totalRecoveredCount}
+    />
   );
 };
 

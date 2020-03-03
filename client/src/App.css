@@ -10,3 +10,13 @@ body {
   font-family: 'Roboto';
   overflow-x: hidden;
 }
+
+.Banner {
+  background: #d3d2d2;
+  padding: 5rem 4rem;
+  border-radius: 0.3em;
+}
+
+.Banner .heading {
+  font-size: 2.5rem;
+}

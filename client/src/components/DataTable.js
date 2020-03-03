@@ -48,7 +48,7 @@ const DataTable = ({ data, isDeath = false }) => {
             <TableCell>State</TableCell>
             <TableCell align='center'>Country</TableCell>
             <TableCell align='center'>
-              {isDeath ? 'Tolls' : 'Total Cases Reported'}
+              {isDeath ? 'Tolls' : 'Total Cases'}
             </TableCell>
             <TableCell align='center'>Changes Since Last Day</TableCell>
           </TableRow>
