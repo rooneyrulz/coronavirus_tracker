@@ -9,7 +9,8 @@
     "server": "nodemon -r esm server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -47,5 +48,8 @@
     "eslint-plugin-react-hooks": "^1.3.0",
     "nodemon": "^2.0.2",
     "prettier": "^1.16.4"
+  },
+  "engines": {
+    "node": "13.2.0"
   }
 }
