@@ -1,5 +1,8 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
+
+// MATERIAL COMPONENTS
+import TextField from '@material-ui/core/TextField';
 
 // REDUX
 import { connect } from 'react-redux';
@@ -13,20 +16,46 @@ const CoronavirusConfirmed = ({
   report: { confirmedData, loading },
   getConfirmedData
 }) => {
+  const [data, setData] = useState({ cases: [] });
+
   useEffect(() => {
     getConfirmedData();
-  }, [getConfirmedData]);
+
+    setData({
+      ...data,
+      cases: loading ? [] : confirmedData
+    });
+  }, [getConfirmedData, loading]);
+
+  const onChange = e => {
+    const filterByCountry = confirmedData.filter(
+      data =>
+        data['Country/Region']
+          .toString()
+          .toLowerCase()
+          .indexOf(e.target.value.toString().toLowerCase()) !== -1 && data
+    );
+    setData({ ...data, cases: filterByCountry });
+    getConfirmedData();
+  };
+
+  const { cases } = data;
 
   return (
     <Fragment>
-      <header>
-        <h1>Coronavirus Confirmed Report</h1>
+      <header className='d__flex'>
+        <h1 className='page-heading'>Coronavirus Confirmed Report</h1>
+        <TextField
+          onChange={e => onChange(e)}
+          id='standard-basic'
+          label='Search By Country..'
+        />
       </header>
       <br />
       <hr />
       <br />
       <br />
-      {loading ? <Spinner /> : <DataTable data={confirmedData} />}
+      {loading ? <Spinner /> : <DataTable data={cases} />}
     </Fragment>
   );
 };

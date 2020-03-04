@@ -11,6 +11,10 @@ body {
   overflow-x: hidden;
 }
 
+.page-heading {
+  margin: 0;
+}
+
 .Banner {
   background: #d3d2d2;
   padding: 5rem 4rem;
@@ -19,4 +23,11 @@ body {
 
 .Banner .heading {
   font-size: 2.5rem;
+}
+
+.d__flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
