@@ -33,6 +33,9 @@ const AppHeader = props => {
           <Button onClick={() => props.history.push('/')} color='inherit'>
             Dashboard
           </Button>
+          <Button onClick={() => props.history.push('/charts')} color='inherit'>
+            Visualization
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

@@ -13,6 +13,7 @@ import Dashboard from './pages/Dashboard';
 import CoronavirusConfirmed from './pages/CoronavirusConfirmed';
 import CoronavirusDeath from './pages/CoronavirusDeath';
 import CoronavirusRecovered from './pages/CoronavirusRecovered';
+import Chart from './pages/Chart';
 import AppFooter from './layouts/AppFooter';
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
                 path='/recovered-cases'
                 component={CoronavirusRecovered}
               />
+              <Route exact path='/charts' component={Chart} />
             </Switch>
           </Container>
           <br />
