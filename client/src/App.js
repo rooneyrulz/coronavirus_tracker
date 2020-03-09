@@ -13,7 +13,7 @@ import Dashboard from './pages/Dashboard';
 import CoronavirusConfirmed from './pages/CoronavirusConfirmed';
 import CoronavirusDeath from './pages/CoronavirusDeath';
 import CoronavirusRecovered from './pages/CoronavirusRecovered';
-import Chart from './pages/Chart';
+import Chart from './pages/charts/Chart';
 import AppFooter from './layouts/AppFooter';
 
 const App = () => {
