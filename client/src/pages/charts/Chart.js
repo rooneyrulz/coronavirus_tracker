@@ -12,6 +12,8 @@ import Box from '@material-ui/core/Box';
 
 // CHART COMPONENTS
 import ConfirmedDataChart from './ConfirmedDataChart';
+import DeathDataChart from './DeathDataChart';
+import RecoveredDataChart from './RecoveredDataChart';
 
 const TabPanel = props => {
   const { children, value, index, ...other } = props;
@@ -93,10 +95,10 @@ const Chart = () => {
           <ConfirmedDataChart />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Death Tolls
+          <DeathDataChart />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          Recovered Cases
+          <RecoveredDataChart />
         </TabPanel>
       </SwipeableViews>
     </div>

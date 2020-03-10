@@ -4,14 +4,14 @@ import { Line } from 'react-chartjs-2';
 
 // REDUX
 import { connect } from 'react-redux';
-import { getConfirmedData } from '../../actions/report';
+import { getRecoveredData } from '../../actions/report';
 
 // COMPONENTS
 import Spinner from '../../layouts/Spinner';
 
-const ConfirmedDataChart = ({
-  report: { confirmedData, loading },
-  getConfirmedData
+const RecoveredDataChart = ({
+  report: { recoveredData, loading },
+  getRecoveredData
 }) => {
   const [chartData, setChartData] = useState({
     labels: ['7th', '6th', '5th', '4th', '3rd', '2nd', 'today'],
@@ -19,10 +19,10 @@ const ConfirmedDataChart = ({
   });
 
   useEffect(() => {
-    getConfirmedData();
+    getRecoveredData();
 
     // 7TH DAT
-    const filterBySeventhDay = confirmedData.map(obj =>
+    const filterBySeventhDay = recoveredData.map(obj =>
       Number(obj[Object.keys(obj)[Object.keys(obj).length - 7]])
     );
 
@@ -32,7 +32,7 @@ const ConfirmedDataChart = ({
     );
 
     // 6TH DAT
-    const filterBySixthDay = confirmedData.map(obj =>
+    const filterBySixthDay = recoveredData.map(obj =>
       Number(obj[Object.keys(obj)[Object.keys(obj).length - 6]])
     );
 
@@ -42,7 +42,7 @@ const ConfirmedDataChart = ({
     );
 
     // 5TH DAT
-    const filterByFifthDay = confirmedData.map(obj =>
+    const filterByFifthDay = recoveredData.map(obj =>
       Number(obj[Object.keys(obj)[Object.keys(obj).length - 5]])
     );
 
@@ -52,7 +52,7 @@ const ConfirmedDataChart = ({
     );
 
     // 4TH DAT
-    const filterByFourthDay = confirmedData.map(obj =>
+    const filterByFourthDay = recoveredData.map(obj =>
       Number(obj[Object.keys(obj)[Object.keys(obj).length - 4]])
     );
 
@@ -62,7 +62,7 @@ const ConfirmedDataChart = ({
     );
 
     // 3RD DAT
-    const filterByThirdDay = confirmedData.map(obj =>
+    const filterByThirdDay = recoveredData.map(obj =>
       Number(obj[Object.keys(obj)[Object.keys(obj).length - 3]])
     );
 
@@ -72,7 +72,7 @@ const ConfirmedDataChart = ({
     );
 
     // 2TH DAT
-    const filterBySecondDay = confirmedData.map(obj =>
+    const filterBySecondDay = recoveredData.map(obj =>
       Number(obj[Object.keys(obj)[Object.keys(obj).length - 2]])
     );
 
@@ -82,7 +82,7 @@ const ConfirmedDataChart = ({
     );
 
     // TODAY
-    const filterByToDay = confirmedData.map(obj =>
+    const filterByToDay = recoveredData.map(obj =>
       Number(obj[Object.keys(obj)[Object.keys(obj).length - 1]])
     );
 
@@ -101,17 +101,17 @@ const ConfirmedDataChart = ({
               label: 'last seven days',
               fill: false,
               lineTension: 0.1,
-              backgroundColor: 'rgba(0,0,255,0.4)',
-              borderColor: 'rgba(0,0,255,1)',
+              backgroundColor: 'rgba(75,192,192,0.4)',
+              borderColor: 'rgba(75,192,192,1)',
               borderCapStyle: 'butt',
               borderDash: [],
               borderDashOffset: 0.0,
               borderJoinStyle: 'miter',
-              pointBorderColor: 'rgba(0,0,255,1)',
+              pointBorderColor: 'rgba(75,192,192,1)',
               pointBackgroundColor: '#fff',
               pointBorderWidth: 1,
               pointHoverRadius: 5,
-              pointHoverBackgroundColor: 'rgba(0,0,255,1)',
+              pointHoverBackgroundColor: 'rgba(75,192,192,1)',
               pointHoverBorderColor: 'rgba(220,220,220,1)',
               pointHoverBorderWidth: 2,
               pointRadius: 1,
@@ -128,7 +128,7 @@ const ConfirmedDataChart = ({
             }
           ]
     });
-  }, [getConfirmedData, loading]);
+  }, [getRecoveredData, loading]);
 
   return loading ? (
     <Spinner />
@@ -140,9 +140,9 @@ const ConfirmedDataChart = ({
   );
 };
 
-ConfirmedDataChart.propTypes = {
+RecoveredDataChart.propTypes = {
   report: PropTypes.object.isRequired,
-  getConfirmedData: PropTypes.func.isRequired
+  getRecoveredData: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -150,5 +150,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, {
-  getConfirmedData
-})(ConfirmedDataChart);
+  getRecoveredData
+})(RecoveredDataChart);
