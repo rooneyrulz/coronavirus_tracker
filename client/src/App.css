@@ -19,10 +19,17 @@ body {
   background: #d3d2d2;
   padding: 5rem 4rem;
   border-radius: 0.3em;
+  align-items: center;
+  text-align: center;
 }
 
 .Banner .heading {
   font-size: 2.5rem;
+}
+
+.banner-label {
+  padding: 1.5em !important;
+  font-size: 1rem !important;
 }
 
 .d__flex {
@@ -30,4 +37,43 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+@media only screen and (max-width: 954px) {
+  .main-toolbar {
+    display: block !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 1em !important;
+  }
+
+  .main-toolbar h6 {
+    padding-bottom: 1rem;
+  }
+}
+
+@media only screen and (max-width: 745px) {
+  .page-header {
+    display: block;
+    align-items: center;
+    text-align: center;
+  }
+
+  .page-heading {
+    margin-bottom: 0.35rem;
+  }
+
+  .search-field {
+    width: 250px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .page-heading {
+    font-size: 24px;
+  }
+
+  .search-field {
+    width: 200px;
+  }
 }

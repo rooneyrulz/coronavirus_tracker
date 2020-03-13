@@ -43,9 +43,10 @@ const CoronavirusConfirmed = ({
 
   return (
     <Fragment>
-      <header className='d__flex'>
+      <header className='d__flex page-header'>
         <h1 className='page-heading'>Coronavirus Confirmed Report</h1>
         <TextField
+          className='search-field'
           onChange={e => onChange(e)}
           id='standard-basic'
           label='Search By Country..'

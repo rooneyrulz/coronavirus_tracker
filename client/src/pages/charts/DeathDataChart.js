@@ -127,14 +127,7 @@ const DeathDataChart = ({ report: { deathData, loading }, getDeathData }) => {
     });
   }, [getDeathData, loading]);
 
-  return loading ? (
-    <Spinner />
-  ) : (
-    <Fragment>
-      {' '}
-      <Line data={chartData} />
-    </Fragment>
-  );
+  return loading ? <Spinner /> : <Line data={chartData} />;
 };
 
 DeathDataChart.propTypes = {

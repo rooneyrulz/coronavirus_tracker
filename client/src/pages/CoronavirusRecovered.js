@@ -43,9 +43,10 @@ const CoronavirusRecovered = ({
 
   return (
     <Fragment>
-      <header className='d__flex'>
-        <h1>Coronavirus Recovered Report</h1>
+      <header className='d__flex page-header'>
+        <h1 className='page-heading'>Coronavirus Recovered Report</h1>
         <TextField
+          className='search-field'
           onChange={e => onChange(e)}
           id='standard-basic'
           label='Search By Country..'

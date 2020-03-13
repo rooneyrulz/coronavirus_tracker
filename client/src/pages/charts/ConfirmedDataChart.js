@@ -130,14 +130,7 @@ const ConfirmedDataChart = ({
     });
   }, [getConfirmedData, loading]);
 
-  return loading ? (
-    <Spinner />
-  ) : (
-    <Fragment>
-      {' '}
-      <Line data={chartData} />
-    </Fragment>
-  );
+  return loading ? <Spinner /> : <Line data={chartData} />;
 };
 
 ConfirmedDataChart.propTypes = {

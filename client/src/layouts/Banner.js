@@ -2,8 +2,20 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 // MATERIAL COMPONENTS
-import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Chip from '@material-ui/core/Chip';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    '& > *': {
+      margin: theme.spacing(0.5)
+    }
+  }
+}));
 
 const Banner = ({
   totalConfirmedCount,
@@ -11,55 +23,39 @@ const Banner = ({
   totalRecoveredCount,
   history
 }) => {
-  const btnStyles = {
-    margin: 10
-  };
+  const classes = useStyles();
+
   return (
     <div className='Banner'>
       <div>
-        <h1 className='heading'>Coronavirus Tracker Application</h1>
+        <h1 className='heading'>Coronavirus Tracker</h1>
         <br />
         <p>
           This application lists out the current number of cases reported across
           the globe
         </p>
         <br />
-        <Typography variant='h3' gutterBottom>
-          {totalConfirmedCount}
-        </Typography>
-        <p>Total cases reported as of today</p>
-        <br />
         <hr />
         <br />
-        <br />
-        <br />
-        <Button
-          style={btnStyles}
-          onClick={() => history.push('/confirmed-cases')}
-          size='large'
-          color='primary'
-          variant='contained'
-        >
-          Confirmed Report: <strong>{totalConfirmedCount}</strong>
-        </Button>
-        <Button
-          style={btnStyles}
-          onClick={() => history.push('/death-cases')}
-          size='large'
-          color='secondary'
-          variant='contained'
-        >
-          Death Report: <strong>{totalDeathCount}</strong>
-        </Button>
-        <Button
-          style={btnStyles}
-          onClick={() => history.push('/recovered-cases')}
-          size='large'
-          color='default'
-          variant='contained'
-        >
-          Recovered Report: <strong>{totalRecoveredCount}</strong>
-        </Button>
+        <div className={classes.root}>
+          <Chip
+            className='banner-label'
+            label={`Confirmed Cases ${totalConfirmedCount}`}
+            color='primary'
+            variant='outlined'
+          />
+          <Chip
+            className='banner-label'
+            label={`Death Tolls ${totalDeathCount}`}
+            color='secondary'
+            variant='outlined'
+          />
+          <Chip
+            className='banner-label'
+            label={`Recovered Cases ${totalRecoveredCount}`}
+            variant='outlined'
+          />
+        </div>
       </div>
     </div>
   );

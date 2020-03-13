@@ -48,7 +48,7 @@ function a11yProps(index) {
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: 500,
+    width: '80%',
     margin: 'auto'
   }
 }));
@@ -86,6 +86,8 @@ const Chart = () => {
           <Tab label='Recovered Cases' {...a11yProps(2)} />
         </Tabs>
       </AppBar>
+      <br />
+      <br />
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
