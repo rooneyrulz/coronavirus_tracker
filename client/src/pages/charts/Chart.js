@@ -48,7 +48,7 @@ function a11yProps(index) {
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: '80%',
+    width: '800px',
     margin: 'auto'
   }
 }));
@@ -71,7 +71,7 @@ const Chart = () => {
   };
 
   return (
-    <div className={classes.root}>
+    <div className={`${classes.root} chart-container`}>
       <AppBar position='static' color='default'>
         <Tabs
           value={value}

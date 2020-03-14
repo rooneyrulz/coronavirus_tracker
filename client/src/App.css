@@ -16,11 +16,11 @@ body {
 }
 
 .Banner {
-  background: #d3d2d2;
   padding: 5rem 4rem;
-  border-radius: 0.3em;
+  border-radius: 0;
   align-items: center;
   text-align: center;
+  box-shadow: 1px 1px 2px 1px #555;
 }
 
 .Banner .heading {
@@ -75,5 +75,35 @@ body {
 
   .search-field {
     width: 200px;
+  }
+}
+
+@media only screen and (max-width: 890px) {
+  .chart-container {
+    width: 650px !important;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .chart-container {
+    width: 600px !important;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .chart-container {
+    width: 500px !important;
+  }
+}
+
+@media only screen and (max-width: 545px) {
+  .chart-container {
+    width: 400px !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .chart-container {
+    width: 300px !important;
   }
 }
