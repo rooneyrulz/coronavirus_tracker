@@ -19,73 +19,73 @@ const DeathDataChart = ({ report: { deathData, loading }, getDeathData }) => {
     getDeathData();
 
     // 7TH DAT
-    const filterBySeventhDay = deathData.map(obj =>
+    const filterBySeventhDayDeathData = deathData.map(obj =>
       Number(obj[Object.keys(obj)[Object.keys(obj).length - 7]])
     );
 
-    const totalBySeventhDay = filterBySeventhDay.reduce(
+    const totalBySeventhDayDeathData = filterBySeventhDayDeathData.reduce(
       (sum, num) => (sum += num),
-      filterBySeventhDay[0]
+      filterBySeventhDayDeathData[0]
     );
 
     // 6TH DAT
-    const filterBySixthDay = deathData.map(obj =>
+    const filterBySixthDayDeathData = deathData.map(obj =>
       Number(obj[Object.keys(obj)[Object.keys(obj).length - 6]])
     );
 
-    const totalBySixthDay = filterBySixthDay.reduce(
+    const totalBySixthDayDeathData = filterBySixthDayDeathData.reduce(
       (sum, num) => (sum += num),
-      filterBySixthDay[0]
+      filterBySixthDayDeathData[0]
     );
 
     // 5TH DAT
-    const filterByFifthDay = deathData.map(obj =>
+    const filterByFifthDayDeathData = deathData.map(obj =>
       Number(obj[Object.keys(obj)[Object.keys(obj).length - 5]])
     );
 
-    const totalByFifthDay = filterByFifthDay.reduce(
+    const totalByFifthDayDeathData = filterByFifthDayDeathData.reduce(
       (sum, num) => (sum += num),
-      filterByFifthDay[0]
+      filterByFifthDayDeathData[0]
     );
 
     // 4TH DAT
-    const filterByFourthDay = deathData.map(obj =>
+    const filterByFourthDayDeathData = deathData.map(obj =>
       Number(obj[Object.keys(obj)[Object.keys(obj).length - 4]])
     );
 
-    const totalByFourthDay = filterByFourthDay.reduce(
+    const totalByFourthDayDeathData = filterByFourthDayDeathData.reduce(
       (sum, num) => (sum += num),
-      filterByFourthDay[0]
+      filterByFourthDayDeathData[0]
     );
 
     // 3RD DAT
-    const filterByThirdDay = deathData.map(obj =>
+    const filterByThirdDayDeathData = deathData.map(obj =>
       Number(obj[Object.keys(obj)[Object.keys(obj).length - 3]])
     );
 
-    const totalByThirdDay = filterByThirdDay.reduce(
+    const totalByThirdDayDeathData = filterByThirdDayDeathData.reduce(
       (sum, num) => (sum += num),
-      filterByThirdDay[0]
+      filterByThirdDayDeathData[0]
     );
 
     // 2TH DAT
-    const filterBySecondDay = deathData.map(obj =>
+    const filterBySecondDayDeathData = deathData.map(obj =>
       Number(obj[Object.keys(obj)[Object.keys(obj).length - 2]])
     );
 
-    const totalBySecondDay = filterBySecondDay.reduce(
+    const totalBySecondDayDeathData = filterBySecondDayDeathData.reduce(
       (sum, num) => (sum += num),
-      filterBySecondDay[0]
+      filterBySecondDayDeathData[0]
     );
 
     // TODAY
-    const filterByToDay = deathData.map(obj =>
+    const filterByTodayDeathData = deathData.map(obj =>
       Number(obj[Object.keys(obj)[Object.keys(obj).length - 1]])
     );
 
-    const totalByToDay = filterByToDay.reduce(
+    const totalByToDayDeathData = filterByTodayDeathData.reduce(
       (sum, num) => (sum += num),
-      filterByToDay[0]
+      filterByTodayDeathData[0]
     );
 
     // SET STATE
@@ -96,7 +96,7 @@ const DeathDataChart = ({ report: { deathData, loading }, getDeathData }) => {
         : [
             {
               label: 'last seven days',
-              fill: false,
+              fill: true,
               lineTension: 0.1,
               backgroundColor: 'rgba(255,0,0,0.4)',
               borderColor: 'rgba(255,0,0,1)',
@@ -114,13 +114,13 @@ const DeathDataChart = ({ report: { deathData, loading }, getDeathData }) => {
               pointRadius: 1,
               pointHitRadius: 10,
               data: [
-                totalBySeventhDay,
-                totalBySixthDay,
-                totalByFifthDay,
-                totalByFourthDay,
-                totalByThirdDay,
-                totalBySecondDay,
-                totalByToDay
+                totalBySeventhDayDeathData,
+                totalBySixthDayDeathData,
+                totalByFifthDayDeathData,
+                totalByFourthDayDeathData,
+                totalByThirdDayDeathData,
+                totalBySecondDayDeathData,
+                totalByToDayDeathData
               ]
             }
           ]

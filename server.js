@@ -2,6 +2,7 @@ import express from 'express';
 import { createServer } from 'http';
 import logger from 'morgan';
 import { config } from 'dotenv';
+import cors from 'cors';
 import path from 'path';
 import 'colors';
 
@@ -12,6 +13,7 @@ const server = createServer(app);
 
 config({ path: '.env' });
 app.use(logger('dev'));
+app.use(cors());
 
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 

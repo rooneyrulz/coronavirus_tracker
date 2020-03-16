@@ -21,6 +21,16 @@ const ConfirmedDataChart = ({
   useEffect(() => {
     getConfirmedData();
 
+    // 8TH DAT
+    const filterByEigthDay = confirmedData.map(obj =>
+      Number(obj[Object.keys(obj)[Object.keys(obj).length - 8]])
+    );
+
+    const totalByEigthDay = filterByEigthDay.reduce(
+      (sum, num) => (sum += num),
+      filterByEigthDay[0]
+    );
+
     // 7TH DAT
     const filterBySeventhDay = confirmedData.map(obj =>
       Number(obj[Object.keys(obj)[Object.keys(obj).length - 7]])
@@ -99,7 +109,7 @@ const ConfirmedDataChart = ({
         : [
             {
               label: 'last seven days',
-              fill: false,
+              fill: true,
               lineTension: 0.1,
               backgroundColor: 'rgba(0,0,255,0.4)',
               borderColor: 'rgba(0,0,255,1)',
