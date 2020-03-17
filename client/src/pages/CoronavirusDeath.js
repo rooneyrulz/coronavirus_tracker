@@ -41,7 +41,7 @@ const CoronavirusDeath = ({ report: { deathData, loading }, getDeathData }) => {
   return (
     <Fragment>
       <header className='d__flex page-header'>
-        <h1 className='page-heading'>Coronavirus Death Tolls Report</h1>
+        <h2 className='page-heading'>Coronavirus Death Tolls Report</h2>
         <TextField
           className='search-field'
           onChange={e => onChange(e)}

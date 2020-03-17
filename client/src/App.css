@@ -28,8 +28,12 @@ body {
 }
 
 .banner-label {
-  padding: 1.5em !important;
+  padding: 1.3em !important;
   font-size: 1rem !important;
+}
+
+.Banner .label-recovered {
+  background: rgba(75, 192, 192, 0.4) !important;
 }
 
 .d__flex {
@@ -69,10 +73,6 @@ body {
 }
 
 @media only screen and (max-width: 330px) {
-  .page-heading {
-    font-size: 24px;
-  }
-
   .search-field {
     width: 200px;
   }

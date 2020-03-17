@@ -44,7 +44,7 @@ const CoronavirusRecovered = ({
   return (
     <Fragment>
       <header className='d__flex page-header'>
-        <h1 className='page-heading'>Coronavirus Recovered Report</h1>
+        <h2 className='page-heading'>Coronavirus Recovered Report</h2>
         <TextField
           className='search-field'
           onChange={e => onChange(e)}

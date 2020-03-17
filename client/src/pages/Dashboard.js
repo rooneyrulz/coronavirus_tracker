@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 
 // REDUX
@@ -24,6 +24,11 @@ const Dashboard = ({
     getDeathData();
     getRecoveredData();
   }, [getConfirmedData, getDeathData, getRecoveredData]);
+
+  const lastUpdate =
+    !loading &&
+    confirmedData.length > 0 &&
+    Object.keys(confirmedData[0])[Object.keys(confirmedData[0]).length - 1];
 
   // FIND TOTAL CONFIRMED CASES
   const filterTotalConfirmedCases = confirmedData.map(data =>
@@ -62,6 +67,7 @@ const Dashboard = ({
       totalConfirmedCount={totalConfirmedCount}
       totalDeathCount={totalDeathCount}
       totalRecoveredCount={totalRecoveredCount}
+      lastUpdate={lastUpdate}
     />
   );
 };

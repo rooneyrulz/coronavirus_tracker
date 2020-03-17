@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 
 // MATERIAL COMPONENTS
 import { makeStyles } from '@material-ui/core/styles';
@@ -21,7 +20,7 @@ const Banner = ({
   totalConfirmedCount,
   totalDeathCount,
   totalRecoveredCount,
-  history
+  lastUpdate
 }) => {
   const classes = useStyles();
 
@@ -42,23 +41,27 @@ const Banner = ({
             className='banner-label'
             label={`Confirmed Cases ${totalConfirmedCount}`}
             color='primary'
-            variant='outlined'
           />
           <Chip
             className='banner-label'
             label={`Death Tolls ${totalDeathCount}`}
             color='secondary'
-            variant='outlined'
           />
           <Chip
-            className='banner-label'
+            className='banner-label label-recovered'
             label={`Recovered Cases ${totalRecoveredCount}`}
-            variant='outlined'
           />
         </div>
+        <br />
+        <br />
+        <Chip
+          className='label-lastupdated'
+          label={`Last Update ${lastUpdate}`}
+          color='default'
+        />
       </div>
     </div>
   );
 };
 
-export default withRouter(Banner);
+export default Banner;
