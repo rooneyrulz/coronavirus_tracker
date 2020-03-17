@@ -11,7 +11,7 @@ import Spinner from '../../layouts/Spinner';
 
 const DeathDataChart = ({ report: { deathData, loading }, getDeathData }) => {
   const [chartData, setChartData] = useState({
-    labels: ['7th', '6th', '5th', '4th', '3rd', '2nd', 'today'],
+    labels: [],
     datasets: []
   });
 
@@ -91,6 +91,17 @@ const DeathDataChart = ({ report: { deathData, loading }, getDeathData }) => {
     // SET STATE
     setChartData({
       ...chartData,
+      labels: loading
+        ? []
+        : [
+            Object.keys(deathData[0])[Object.keys(deathData[0]).length - 7],
+            Object.keys(deathData[0])[Object.keys(deathData[0]).length - 6],
+            Object.keys(deathData[0])[Object.keys(deathData[0]).length - 5],
+            Object.keys(deathData[0])[Object.keys(deathData[0]).length - 4],
+            Object.keys(deathData[0])[Object.keys(deathData[0]).length - 3],
+            Object.keys(deathData[0])[Object.keys(deathData[0]).length - 2],
+            Object.keys(deathData[0])[Object.keys(deathData[0]).length - 1]
+          ],
       datasets: loading
         ? []
         : [
