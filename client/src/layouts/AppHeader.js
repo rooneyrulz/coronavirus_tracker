@@ -28,7 +28,7 @@ const AppHeader = props => {
       <AppBar position='static'>
         <Toolbar className='main-toolbar'>
           <Typography variant='h6' className={classes.title}>
-            Coronavirus Tracker
+            CORONAVIRUS TRACKER
           </Typography>
           <div>
             <AppLinks />
