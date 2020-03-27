@@ -104,64 +104,66 @@ const ConfirmedDataChart = ({
     // SET STATE
     setChartData({
       ...chartData,
-      labels: loading
-        ? []
-        : [
-            Object.keys(confirmedData[0])[
-              Object.keys(confirmedData[0]).length - 7
-            ],
-            Object.keys(confirmedData[0])[
-              Object.keys(confirmedData[0]).length - 6
-            ],
-            Object.keys(confirmedData[0])[
-              Object.keys(confirmedData[0]).length - 5
-            ],
-            Object.keys(confirmedData[0])[
-              Object.keys(confirmedData[0]).length - 4
-            ],
-            Object.keys(confirmedData[0])[
-              Object.keys(confirmedData[0]).length - 3
-            ],
-            Object.keys(confirmedData[0])[
-              Object.keys(confirmedData[0]).length - 2
-            ],
-            Object.keys(confirmedData[0])[
-              Object.keys(confirmedData[0]).length - 1
-            ]
-          ],
-      datasets: loading
-        ? []
-        : [
-            {
-              label: 'last seven days',
-              fill: true,
-              lineTension: 0.1,
-              backgroundColor: 'rgba(0,0,255,0.4)',
-              borderColor: 'rgba(0,0,255,1)',
-              borderCapStyle: 'butt',
-              borderDash: [],
-              borderDashOffset: 0.0,
-              borderJoinStyle: 'miter',
-              pointBorderColor: 'rgba(0,0,255,1)',
-              pointBackgroundColor: '#fff',
-              pointBorderWidth: 1,
-              pointHoverRadius: 5,
-              pointHoverBackgroundColor: 'rgba(0,0,255,1)',
-              pointHoverBorderColor: 'rgba(220,220,220,1)',
-              pointHoverBorderWidth: 2,
-              pointRadius: 1,
-              pointHitRadius: 10,
-              data: [
-                totalBySeventhDay,
-                totalBySixthDay,
-                totalByFifthDay,
-                totalByFourthDay,
-                totalByThirdDay,
-                totalBySecondDay,
-                totalByToDay
+      labels:
+        loading || !confirmedData
+          ? []
+          : [
+              Object.keys(confirmedData[0])[
+                Object.keys(confirmedData[0]).length - 7
+              ],
+              Object.keys(confirmedData[0])[
+                Object.keys(confirmedData[0]).length - 6
+              ],
+              Object.keys(confirmedData[0])[
+                Object.keys(confirmedData[0]).length - 5
+              ],
+              Object.keys(confirmedData[0])[
+                Object.keys(confirmedData[0]).length - 4
+              ],
+              Object.keys(confirmedData[0])[
+                Object.keys(confirmedData[0]).length - 3
+              ],
+              Object.keys(confirmedData[0])[
+                Object.keys(confirmedData[0]).length - 2
+              ],
+              Object.keys(confirmedData[0])[
+                Object.keys(confirmedData[0]).length - 1
               ]
-            }
-          ]
+            ],
+      datasets:
+        loading || !confirmedData
+          ? []
+          : [
+              {
+                label: 'last seven days',
+                fill: true,
+                lineTension: 0.1,
+                backgroundColor: 'rgba(0,0,255,0.4)',
+                borderColor: 'rgba(0,0,255,1)',
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: 'rgba(0,0,255,1)',
+                pointBackgroundColor: '#fff',
+                pointBorderWidth: 1,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: 'rgba(0,0,255,1)',
+                pointHoverBorderColor: 'rgba(220,220,220,1)',
+                pointHoverBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: [
+                  totalBySeventhDay,
+                  totalBySixthDay,
+                  totalByFifthDay,
+                  totalByFourthDay,
+                  totalByThirdDay,
+                  totalBySecondDay,
+                  totalByToDay
+                ]
+              }
+            ]
     });
   }, [getConfirmedData, loading]);
 

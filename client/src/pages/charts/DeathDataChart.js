@@ -19,9 +19,11 @@ const DeathDataChart = ({ report: { deathData, loading }, getDeathData }) => {
     getDeathData();
 
     // 7TH DAT
-    const filterBySeventhDayDeathData = deathData.map(obj =>
-      Number(obj[Object.keys(obj)[Object.keys(obj).length - 7]])
-    );
+    const filterBySeventhDayDeathData =
+      !loading &&
+      deathData.map(obj =>
+        Number(obj[Object.keys(obj)[Object.keys(obj).length - 7]])
+      );
 
     const totalBySeventhDayDeathData = filterBySeventhDayDeathData.reduce(
       (sum, num) => (sum += num),
@@ -29,9 +31,11 @@ const DeathDataChart = ({ report: { deathData, loading }, getDeathData }) => {
     );
 
     // 6TH DAT
-    const filterBySixthDayDeathData = deathData.map(obj =>
-      Number(obj[Object.keys(obj)[Object.keys(obj).length - 6]])
-    );
+    const filterBySixthDayDeathData =
+      !loading &&
+      deathData.map(obj =>
+        Number(obj[Object.keys(obj)[Object.keys(obj).length - 6]])
+      );
 
     const totalBySixthDayDeathData = filterBySixthDayDeathData.reduce(
       (sum, num) => (sum += num),
@@ -39,9 +43,11 @@ const DeathDataChart = ({ report: { deathData, loading }, getDeathData }) => {
     );
 
     // 5TH DAT
-    const filterByFifthDayDeathData = deathData.map(obj =>
-      Number(obj[Object.keys(obj)[Object.keys(obj).length - 5]])
-    );
+    const filterByFifthDayDeathData =
+      !loading &&
+      deathData.map(obj =>
+        Number(obj[Object.keys(obj)[Object.keys(obj).length - 5]])
+      );
 
     const totalByFifthDayDeathData = filterByFifthDayDeathData.reduce(
       (sum, num) => (sum += num),
@@ -49,9 +55,11 @@ const DeathDataChart = ({ report: { deathData, loading }, getDeathData }) => {
     );
 
     // 4TH DAT
-    const filterByFourthDayDeathData = deathData.map(obj =>
-      Number(obj[Object.keys(obj)[Object.keys(obj).length - 4]])
-    );
+    const filterByFourthDayDeathData =
+      !loading &&
+      deathData.map(obj =>
+        Number(obj[Object.keys(obj)[Object.keys(obj).length - 4]])
+      );
 
     const totalByFourthDayDeathData = filterByFourthDayDeathData.reduce(
       (sum, num) => (sum += num),
@@ -59,9 +67,11 @@ const DeathDataChart = ({ report: { deathData, loading }, getDeathData }) => {
     );
 
     // 3RD DAT
-    const filterByThirdDayDeathData = deathData.map(obj =>
-      Number(obj[Object.keys(obj)[Object.keys(obj).length - 3]])
-    );
+    const filterByThirdDayDeathData =
+      !loading &&
+      deathData.map(obj =>
+        Number(obj[Object.keys(obj)[Object.keys(obj).length - 3]])
+      );
 
     const totalByThirdDayDeathData = filterByThirdDayDeathData.reduce(
       (sum, num) => (sum += num),
@@ -69,9 +79,11 @@ const DeathDataChart = ({ report: { deathData, loading }, getDeathData }) => {
     );
 
     // 2TH DAT
-    const filterBySecondDayDeathData = deathData.map(obj =>
-      Number(obj[Object.keys(obj)[Object.keys(obj).length - 2]])
-    );
+    const filterBySecondDayDeathData =
+      !loading &&
+      deathData.map(obj =>
+        Number(obj[Object.keys(obj)[Object.keys(obj).length - 2]])
+      );
 
     const totalBySecondDayDeathData = filterBySecondDayDeathData.reduce(
       (sum, num) => (sum += num),
@@ -79,9 +91,11 @@ const DeathDataChart = ({ report: { deathData, loading }, getDeathData }) => {
     );
 
     // TODAY
-    const filterByTodayDeathData = deathData.map(obj =>
-      Number(obj[Object.keys(obj)[Object.keys(obj).length - 1]])
-    );
+    const filterByTodayDeathData =
+      !loading &&
+      deathData.map(obj =>
+        Number(obj[Object.keys(obj)[Object.keys(obj).length - 1]])
+      );
 
     const totalByToDayDeathData = filterByTodayDeathData.reduce(
       (sum, num) => (sum += num),
@@ -91,50 +105,52 @@ const DeathDataChart = ({ report: { deathData, loading }, getDeathData }) => {
     // SET STATE
     setChartData({
       ...chartData,
-      labels: loading
-        ? []
-        : [
-            Object.keys(deathData[0])[Object.keys(deathData[0]).length - 7],
-            Object.keys(deathData[0])[Object.keys(deathData[0]).length - 6],
-            Object.keys(deathData[0])[Object.keys(deathData[0]).length - 5],
-            Object.keys(deathData[0])[Object.keys(deathData[0]).length - 4],
-            Object.keys(deathData[0])[Object.keys(deathData[0]).length - 3],
-            Object.keys(deathData[0])[Object.keys(deathData[0]).length - 2],
-            Object.keys(deathData[0])[Object.keys(deathData[0]).length - 1]
-          ],
-      datasets: loading
-        ? []
-        : [
-            {
-              label: 'last seven days',
-              fill: true,
-              lineTension: 0.1,
-              backgroundColor: 'rgba(255,0,0,0.4)',
-              borderColor: 'rgba(255,0,0,1)',
-              borderCapStyle: 'butt',
-              borderDash: [],
-              borderDashOffset: 0.0,
-              borderJoinStyle: 'miter',
-              pointBorderColor: 'rgba(255,0,0,1)',
-              pointBackgroundColor: '#fff',
-              pointBorderWidth: 1,
-              pointHoverRadius: 5,
-              pointHoverBackgroundColor: 'rgba(255,0,0,1)',
-              pointHoverBorderColor: 'rgba(220,220,220,1)',
-              pointHoverBorderWidth: 2,
-              pointRadius: 1,
-              pointHitRadius: 10,
-              data: [
-                totalBySeventhDayDeathData,
-                totalBySixthDayDeathData,
-                totalByFifthDayDeathData,
-                totalByFourthDayDeathData,
-                totalByThirdDayDeathData,
-                totalBySecondDayDeathData,
-                totalByToDayDeathData
-              ]
-            }
-          ]
+      labels:
+        loading || deathData.length < 1
+          ? []
+          : [
+              Object.keys(deathData[0])[Object.keys(deathData[0]).length - 7],
+              Object.keys(deathData[0])[Object.keys(deathData[0]).length - 6],
+              Object.keys(deathData[0])[Object.keys(deathData[0]).length - 5],
+              Object.keys(deathData[0])[Object.keys(deathData[0]).length - 4],
+              Object.keys(deathData[0])[Object.keys(deathData[0]).length - 3],
+              Object.keys(deathData[0])[Object.keys(deathData[0]).length - 2],
+              Object.keys(deathData[0])[Object.keys(deathData[0]).length - 1]
+            ],
+      datasets:
+        loading || deathData.length < 1
+          ? []
+          : [
+              {
+                label: 'last seven days',
+                fill: true,
+                lineTension: 0.1,
+                backgroundColor: 'rgba(255,0,0,0.4)',
+                borderColor: 'rgba(255,0,0,1)',
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: 'rgba(255,0,0,1)',
+                pointBackgroundColor: '#fff',
+                pointBorderWidth: 1,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: 'rgba(255,0,0,1)',
+                pointHoverBorderColor: 'rgba(220,220,220,1)',
+                pointHoverBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: [
+                  totalBySeventhDayDeathData,
+                  totalBySixthDayDeathData,
+                  totalByFifthDayDeathData,
+                  totalByFourthDayDeathData,
+                  totalByThirdDayDeathData,
+                  totalBySecondDayDeathData,
+                  totalByToDayDeathData
+                ]
+              }
+            ]
     });
   }, [getDeathData, loading]);
 
