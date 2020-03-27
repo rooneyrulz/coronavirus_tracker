@@ -26,7 +26,7 @@ const Banner = ({
   return (
     <div className='Banner'>
       <div>
-        <h1 className='heading'>Coronavirus Tracker</h1>
+        <h1 className='heading'>COVID-19 Tracker</h1>
         <br />
         <p>
           This application lists out the current number of cases reported across
