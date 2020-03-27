@@ -17,10 +17,10 @@ const DataTableRow = ({ row, history }) => {
 
   // useEffect(() => console.log(row), []);
 
-  const onClick = e => history.push('/somewhere');
+  // const onClick = e => history.push('/somewhere');
 
   return (
-    <TableRow hover className={classes.tableRow} onClick={e => onClick(e)}>
+    <TableRow hover className={classes.tableRow}>
       <TableCell component='th' scope='row'>
         {row.state}
       </TableCell>
